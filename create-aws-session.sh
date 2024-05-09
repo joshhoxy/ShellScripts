@@ -5,7 +5,7 @@
 #   exit 1
 # fi
 
-output_file=session.json
+output_file=~/session.json
 
 if [ -z "$1"  ]; then
   echo "You should input MFA serial codes"
