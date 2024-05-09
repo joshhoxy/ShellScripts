@@ -19,9 +19,9 @@ fi
 
 aws sts assume-role --profile mz-tf-user --role-arn arn:aws:iam::851725467479:role/iam-role-josh-assume-admin --role-session-name MySession --serial-number arn:aws:iam::851725467479:mfa/josh-iphone --token $1 > $output_file
 
-aws configure set aws_access_key_id $(cat session.json | jq -r .Credentials.AccessKeyId)
-aws configure set aws_secret_access_key $(cat session.json | jq -r .Credentials.SecretAccessKey)
-aws configure set aws_session_token $(cat session.json | jq -r .Credentials.SessionToken)
+aws configure set aws_access_key_id $(cat $output_file | jq -r .Credentials.AccessKeyId)
+aws configure set aws_secret_access_key $(cat $output_file | jq -r .Credentials.SecretAccessKey)
+aws configure set aws_session_token $(cat $output_file | jq -r .Credentials.SessionToken)
 
 
 #### TIL Memo #### 
